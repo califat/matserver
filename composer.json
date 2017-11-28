@@ -1,0 +1,24 @@
+{
+	"autoload":{
+		"psr-4":{
+			"controller\\"		:"controller",
+			"Router\\"			:"router",
+			"Handler\\"			:"Handler",
+			"Template\\"		:"Templates",
+			"Find_session\\"	:"session",
+			"Model\\"			:"model",
+			"Dotenv\\"			: "vendor\\phpdotenv\\src/"
+		},
+		"files":[
+			"web/Dater.php",
+			"web/AppDefender.php",
+			"web/LoadEnv.php"
+		]
+	},
+	"minimum-stability": "dev",
+	"require": {
+		"xemle/html5-video-php"	: "dev-master",
+		"symfony/yaml": "^3.3",
+		"nesbot/carbon": "~1.21"
+	}
+}

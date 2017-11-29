@@ -9,9 +9,7 @@ $Dotenv 	=new Dotenv(__DIR__);
 $Dotenv->load();
 
 $LoadEnv 	=new LoadEnv;
-
-echo $LoadEnv->SECRET_KEY;
-
 use controller\controller;
 setlocale(LC_ALL, 'fr_CA.utf-8');
 (new controller);
+

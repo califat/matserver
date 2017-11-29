@@ -8,10 +8,7 @@ if(!file_exists("vendor/autoload.php"))die();
 require "vendor/autoload.php";
 
 use controller\controller;
-use Find_session\Find_session;
-use Template\Template;
 use Handler\Handler;
-use UserProfil\FindUserByUrl;
 
 class Router extends Controller
 {
@@ -42,7 +39,8 @@ class Router extends Controller
 
 			$this->route =$route;
 
-			return $this->route;
+			return static::$route();
+
 
 		}else{
 
@@ -301,6 +299,11 @@ class Router extends Controller
 	#ONLY USED FOR INDEX PAGE AND HOME PAGE
 	public static function MakeView(){
 		
+	}
+
+	public function run(){
+		
+		echo "string";
 	}
 
 }#END CLASS

@@ -13,7 +13,8 @@
 			"web/Dater.php",
 			"web/AppDefender.php",
 			"web/LoadEnv.php"
-		]
+		],
+		"classmap": ["Http/", "src/", "Deserializer.php"]
 	},
 	"minimum-stability": "dev",
 	"require": {

@@ -11,6 +11,7 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
         '94491556e7c970ee9460161a54c3e6e2' => __DIR__ . '/../..' . '/web/Dater.php',
         'bdc08ff2c4cb3093bd2b47d9a943c564' => __DIR__ . '/../..' . '/web/AppDefender.php',
         '55775cce80bab5053b26773cf8fc4120' => __DIR__ . '/../..' . '/web/LoadEnv.php',
+        '6093403270b670b25320e235126e137e' => __DIR__ . '/../..' . '/web/Stringer.php',
     );
 
     public static $prefixLengthsPsr4 = array (

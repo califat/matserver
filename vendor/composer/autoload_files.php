@@ -10,4 +10,5 @@ return array(
     '94491556e7c970ee9460161a54c3e6e2' => $baseDir . '/web/Dater.php',
     'bdc08ff2c4cb3093bd2b47d9a943c564' => $baseDir . '/web/AppDefender.php',
     '55775cce80bab5053b26773cf8fc4120' => $baseDir . '/web/LoadEnv.php',
+    '6093403270b670b25320e235126e137e' => $baseDir . '/web/Stringer.php',
 );

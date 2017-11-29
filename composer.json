@@ -12,7 +12,8 @@
 		"files":[
 			"web/Dater.php",
 			"web/AppDefender.php",
-			"web/LoadEnv.php"
+			"web/LoadEnv.php",
+			"web/Stringer.php"
 		],
 		"classmap": ["Http/", "src/", "Deserializer.php"]
 	},

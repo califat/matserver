@@ -1,12 +1,18 @@
 {
-	"bpath": "http://www.sampledomain.com/",
-	"clist": 
+	"domainName": "https://www.matibabusmsalert.com/",
+	"Http": 
 	    {
-	        "cid": "11",
-	        "display_type": "grid",
-	        "ctitle": "abc",
-	        "acount": "71",
-	        "alist":{
+	        "orangeProviders"	: 		["bulksms.com","isendpro.com"],
+	        "tigoProviders"		: 		["bulksms.com","nexmo.com"],
+	        "airtelProviders"	: 		["bulksms.com","infobip.com"],
+	        "vodacomProviders"	:		["bulksms.com","smsfactor.com"],
+	        "fallbackProvider"	: 		"Twillio.com",
+	        "VOIP"				: 		false,
+	        "SMS"				:		true,
+	        "SCHEDULABLE" 		: 		true,
+	        "DETERMINE_DELAY" 	:		true,
+	        "DEFAULT_DELAY" 		: 	2592000, //30 Days
+	        "put":{
 	                "aid": "6865",
 	                "adate": "2 Hours ago",
 	                "atitle": "test",
@@ -15,6 +21,26 @@
 	                "aurl": "?nid=6865",
 	                "weburl": "news.php?nid=6865",
 	                "cmtcount": "0"
-	            }
+	            },
+	        "get":{
+	                "aid": "6865",
+	                "adate": "2 Hours ago",
+	                "atitle": "test",
+	                "adesc": "test desc",
+	                "aimg": "",
+	                "aurl": "?nid=6865",
+	                "weburl": "news.php?nid=6865",
+	                "cmtcount": "0"
+	            },
+	        "update":{
+	                "aid": "6865",
+	                "adate": "2 Hours ago",
+	                "atitle": "test",
+	                "adesc": "test desc",
+	                "aimg": "",
+	                "aurl": "?nid=6865",
+	                "weburl": "news.php?nid=6865",
+	                "cmtcount": "0"
+	            }    
 	    }
 }

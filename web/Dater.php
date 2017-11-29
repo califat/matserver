@@ -29,7 +29,7 @@ class Dater
 
 	function __construct()
 	{
-		$this->stringer 	=new Stringer;
+		$this->stringer 	=new \Stringer;
 		$this->now 			=date('Y-m-d-H-i-s');
 		$this->today  		=date("Y/m/d");
 		$this->today_ 		=date("Y-m-d");
@@ -189,7 +189,54 @@ class Dater
 	    if (!$full) $string = array_slice($string, 0, 1);
 	    return $string ? 'il ya '.implode(', ', $string) : 'maintenant';
 	}
+	
+	//RETURN NUMBER OF DAYS PER MOMNT 
+	public function getDays($array,$integer=""){
 
+		switch ($integer) {
+
+			case 1:
+				return $array["JANUARY"];
+				break;
+			case 2:
+				return $array["FEBRUARY"];
+				break;
+			case 3:
+				return $array["MARCH"];
+				break;
+			case 4:
+				return $array["APRIL"];
+				break;
+			case 5:
+				return $array["MAY"];
+				break;
+			case 6:
+				return $array["JUNE"];
+				break;
+			case 7:
+				return $array["JULY"];
+				break;
+			case 8:
+				return $array["AUGUST"];
+				break;
+			case 9:
+				return $array["SEPTEMBER"];
+				break;
+			case 10:
+				return $array["OCTOBER"];
+				break;
+			case 11:
+				return $array["NOVEMBER"];
+				break;
+			case 12:
+				return $array["DECEMBER"];
+				break;										
+			default:
+				return 0;
+				break;
+		}
+
+	}
 }
 
 

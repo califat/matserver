@@ -9,7 +9,7 @@ return array(
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
-    'ClientHttp' => $baseDir . '/Http/ClientHttp.php',
+    'ClientHttp\\matibabu\\ClientHttp' => $baseDir . '/Http/ClientHttp.php',
     'Dotenv\\Dotenv' => $vendorDir . '/phpdotenv/src/Dotenv.php',
     'Dotenv\\Exception\\ExceptionInterface' => $vendorDir . '/phpdotenv/src/Exception/ExceptionInterface.php',
     'Dotenv\\Exception\\InvalidCallbackException' => $vendorDir . '/phpdotenv/src/Exception/InvalidCallbackException.php',

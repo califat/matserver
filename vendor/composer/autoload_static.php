@@ -109,7 +109,7 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
-        'ClientHttp' => __DIR__ . '/../..' . '/Http/ClientHttp.php',
+        'ClientHttp\\matibabu\\ClientHttp' => __DIR__ . '/../..' . '/Http/ClientHttp.php',
         'Dotenv\\Dotenv' => __DIR__ . '/..' . '/phpdotenv/src/Dotenv.php',
         'Dotenv\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/phpdotenv/src/Exception/ExceptionInterface.php',
         'Dotenv\\Exception\\InvalidCallbackException' => __DIR__ . '/..' . '/phpdotenv/src/Exception/InvalidCallbackException.php',

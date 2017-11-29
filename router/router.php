@@ -9,6 +9,7 @@ require "vendor/autoload.php";
 
 use controller\controller;
 use Handler\Handler;
+use ClientHttp\matibabu\ClientHttp;
 
 class Router extends Controller
 {
@@ -302,8 +303,8 @@ class Router extends Controller
 	}
 
 	public function run(){
-		
-		echo "string";
+
+		(new ClientHttp);
 	}
 
 }#END CLASS

@@ -1,0 +1,20 @@
+{
+	"bpath": "http://www.sampledomain.com/",
+	"clist": 
+	    {
+	        "cid": "11",
+	        "display_type": "grid",
+	        "ctitle": "abc",
+	        "acount": "71",
+	        "alist":{
+	                "aid": "6865",
+	                "adate": "2 Hours ago",
+	                "atitle": "test",
+	                "adesc": "test desc",
+	                "aimg": "",
+	                "aurl": "?nid=6865",
+	                "weburl": "news.php?nid=6865",
+	                "cmtcount": "0"
+	            }
+	    }
+}

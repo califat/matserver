@@ -191,45 +191,52 @@ class Dater
 	}
 	
 	//RETURN NUMBER OF DAYS PER MOMNT 
-	public function getDays($array,$integer=""){
+	public function getDays($integer=""){
+
+	$MonthsDaysNumber =[
+							"JANUARY"	=>31, "FEBRUARY"	=>29, "MARCH"		=>31, 
+							"APRIL"		=>30, "MAY"			=>31, "JUNE"		=>30,
+							"JULLY"		=>31, "AUGUST"		=>31, "SEPTEMBER"	=>30, 
+							"OCTOBER"	=>31, "NOVEMBER"	=>30, "DECEMBER"	=>31
+						];
 
 		switch ($integer) {
 
 			case 1:
-				return $array["JANUARY"];
+				return $MonthsDaysNumber["JANUARY"];
 				break;
 			case 2:
-				return $array["FEBRUARY"];
+				return $MonthsDaysNumber["FEBRUARY"];
 				break;
 			case 3:
-				return $array["MARCH"];
+				return $MonthsDaysNumber["MARCH"];
 				break;
 			case 4:
-				return $array["APRIL"];
+				return $MonthsDaysNumber["APRIL"];
 				break;
 			case 5:
-				return $array["MAY"];
+				return $MonthsDaysNumber["MAY"];
 				break;
 			case 6:
-				return $array["JUNE"];
+				return $MonthsDaysNumber["JUNE"];
 				break;
 			case 7:
-				return $array["JULY"];
+				return $MonthsDaysNumber["JULY"];
 				break;
 			case 8:
-				return $array["AUGUST"];
+				return $MonthsDaysNumber["AUGUST"];
 				break;
 			case 9:
-				return $array["SEPTEMBER"];
+				return $MonthsDaysNumber["SEPTEMBER"];
 				break;
 			case 10:
-				return $array["OCTOBER"];
+				return $MonthsDaysNumber["OCTOBER"];
 				break;
 			case 11:
-				return $array["NOVEMBER"];
+				return $MonthsDaysNumber["NOVEMBER"];
 				break;
 			case 12:
-				return $array["DECEMBER"];
+				return $MonthsDaysNumber["DECEMBER"];
 				break;										
 			default:
 				return 0;

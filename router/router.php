@@ -1,8 +1,4 @@
 <?php
-/**
-* 
-MAIN ROUTER
-*/
 namespace Router;
 if(!file_exists("vendor/autoload.php"))die();
 require "vendor/autoload.php";
@@ -36,12 +32,16 @@ class Router extends Controller
 	public function __construct($route)
 	{
 
-		if(method_exists(get_class($this),strtolower($route)) || strtolower($route) ==="" ){
+		if(method_exists(get_class($this),strtolower($route)) || strtolower($route) !=="" ){
 
 			$this->route =$route;
 
 			return static::$route();
 
+
+		}elseif(strtolower($route) ===""){
+
+			$this->ApiIndex();
 
 		}else{
 
@@ -302,9 +302,23 @@ class Router extends Controller
 		
 	}
 
-	public function run(){
+	public static function run(){
 
 		(new ClientHttp);
+	}
+
+	public function ApiIndex()
+	{
+		echo "vs ete a la page index de l'API";
+	}
+
+	public static function form()
+	{
+		return require"form.php";
+	}
+	public static function addStage()
+	{
+		return require"addStage.php";
 	}
 
 }#END CLASS

@@ -1,7 +1,4 @@
 <?php
-/**
-* CONTROLLEUR PRINCIPALE
-*/
 namespace controller;
 if(!file_exists("vendor/autoload.php"))die();
 require "vendor/autoload.php";

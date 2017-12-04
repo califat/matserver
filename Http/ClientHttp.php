@@ -1,34 +1,20 @@
 <?php
 namespace ClientHttp\matibabu;
 require "vendor/autoload.php";
-/**
-* 
-*/
-
+use Router\Router;
 class ClientHttp
 {
 	
 	public 		$Public_key;
 	private 	$EnvVars;
-	public 		$MonthsDaysNumber =[
-										"JANUARY"	=>31, 
-										"FEBRUARY"	=>29, 
-										"MARCH"		=>31, 
-										"APRIL"		=>30, 
-										"MAY"		=>31, 
-										"JUNE"		=>30,
-										"JULY"		=>31, 
-										"AUGUST"	=>31, 
-										"SEPTEMBER"	=>30, 
-										"OCTOBER"	=>31, 
-										"NOVEMBER"	=>30, 
-										"DECEMBER"	=>31
-									];
+	private     $Dater;
+	public 		$dataPost;
 
 
 	function __construct()
 	{
 		$this->EnvVars 		=(new \LoadEnv);
+		$this->Dater 		=new \Dater;
 		$this->Public_key 	=$this->EnvVars->PUBLIC_KEY;
 		$data 				=file_get_contents('./tasks.json', FILE_USE_INCLUDE_PATH);
 
@@ -46,8 +32,23 @@ class ClientHttp
         //         }
         //     }
         // }
-        var_dump(strftime("%d"));
-        echo (new \Dater)->getDays($this->MonthsDaysNumber,1);
+        //echo $this->Dater->getDays(11);//  SHOW HOW MANY DAY NOVEMEMBER HAS
+
+        if(isset($_POST)){
+
+        	if(isset($_POST["data"]) && !empty($_POST["data"])){
+
+        		echo "string";
+
+        	}else{
+
+        		Router::notAcceptable();
+        	}
+
+        }else{
+
+        	Router::notAcceptable();
+        }
 	}
 
 }

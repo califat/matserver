@@ -15,7 +15,7 @@
 			"web/LoadEnv.php",
 			"web/Stringer.php"
 		],
-		"classmap": ["Http/", "src/", "Deserializer.php"]
+		"classmap": ["Http/", "src/", "Deserializer.php","security/"]
 	},
 	"minimum-stability": "dev",
 	"require": {

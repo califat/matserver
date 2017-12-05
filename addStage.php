@@ -28,10 +28,6 @@
 						<input type="text" id="satgeName" name="satgeName" class="middle">
 					</label>
 					<label>
-						<p>Identification</p>
-						<input type="text" id="stageId" name="stageId" class="middle">
-					</label>
-					<label>
 						<p>Province</p>
 						<select id="stageProvince">
 							<option value="A">Bas-uele</option>
@@ -65,16 +61,19 @@
 					</label>
 					<label>
 						<p>Zone de sante</p>
-						<select id="stageProvince">
+						<select id="zoneSante">
 							<option value="A">Bas-uele</option>
 							<option value="B">Equateur</option>
 							<option value="C">Haut-katanga</option>
 						</select>
 					</label>
-
 					<label>
-						<p>Niveau de la structure</p>
-						<input type="text" id="stageLevel" name="" placeholder="Hopital, centre Hospitalier, zone de sante, cente de sante" class="full">
+						<p>Nom du responsable</p>
+						<input type="text" id="responsableName" name="" placeholder="Hopital, centre Hospitalier, zone de sante, cente de sante" class="full">
+					</label>
+					<label>
+						<p>Numero de telephone</p>
+						<input type="text" id="responsablePhone" name="" placeholder="Hopital, centre Hospitalier, zone de sante, cente de sante" class="full">
 					</label>	
 				</section>
 				<button id="submit">Submit</button>
@@ -83,11 +82,12 @@
 	</div>
 	<script type="text/javascript" src="nazam.js"></script>
 	<script type="text/javascript">
-		let submit 			=document.getElementById("submit");
-		let satgeName 		=document.getElementById("satgeName");
-		let stageId 		=document.getElementById("stageId");
-		let stageProvince 	=document.getElementById("stageProvince");
-		let stageLevel 		=document.getElementById("stageLevel");
+		let submit 					=document.getElementById("submit");
+		let satgeName 				=document.getElementById("satgeName");
+		let stageProvince 			=document.getElementById("stageProvince");
+		let stageResponsableName 	=document.getElementById("responsableName");
+		let stageResponsablePhone	=document.getElementById("responsablePhone");
+		let zoneSante 				=document.getElementById("zoneSante");
 
 		(function(){
 			"use strict";
@@ -98,18 +98,18 @@
 						event.preventDefault();
 						
 						try{
-							if(satgeName && stageId && stageProvince && stageLevel){
-		
-
-								let Name =satgeName.value, Id =stageId.value, Province =stageProvince.options[stageProvince.selectedIndex].value, Level =stageLevel.value;
+							if(satgeName && stageProvince && responsableName, responsablePhone){
 								
-								if(Name =="" || stageId =="" || Province == "" || Level == ""){
+								let Name =satgeName.value, Province =stageProvince.options[stageProvince.selectedIndex].value, responsableName =stageResponsableName.value, responsablePhone =stageResponsablePhone.value, Zone =zoneSante.options[zoneSante.selectedIndex].value;
+								
+								if(Name =="" || Province == "" || responsableName == "" || responsablePhone ==""){
 
 									alert("completer tout les champs SVP!");
+									
 
 								}else{
 									
-									makeRequest(Name,Id,Province,Level);
+									makeRequest(Name,Province,Zone,responsableName,responsablePhone);
 
 								}
 
@@ -124,34 +124,38 @@
 				console.log(e);
 			}
 		})();
-	    function makeRequest(Name,Id,Province,Level){
+	    function makeRequest(Name,Province,Zone,responsableName,responsablePhone){
 	  
-	      let uriPost   	="run";
-	      let xhrPost   	=GethttpRequest();
-	      let fdPost    	=new FormData();
-	      let Action 		="create_stage";
-	      let Method 		=["PUT","PATCH","GET","UPDATE","DELETE"];
-	      let Key 			="@k-bWF0NEtMQUItTWF0aWJhYnVBbGVydDIwMTc=";//DEFAULT VALUE FOR REGISTRATION
-	      let Account_sid 	="@s-bWF0NEtMQUItTWF0aWJhYnVBbGVydDIwMTc=";//DEFAULT VALUE FOR REGISTRATION
-	      let Account_token ="@t-bWF0NEtMQUItTWF0aWJhYnVBbGVydDIwMTc=";//DEFAULT VALUE FOR REGISTRATION
-	      let Bill 			=utf8_to_b64(Name+Id+Province+Level);
+	      	let uriPost   		="run";
+	      	let xhrPost   		=GethttpRequest();
+	      	let fdPost    		=new FormData();
+	      	let Action 			="create_stage";
+	      	let Method 			=["POST","PATCH","GET","UPDATE","DELETE"];
+	      	let Key 			="@k-bWF0NEtMQUItTWF0aWJhYnVBbGVydDIwMTc=";
+	      	let Account_sid 	="@s-bWF0NEtMQUItTWF0aWJhYnVBbGVydDIwMTc=";
+	      	let Account_token 	="@t-bWF0NEtMQUItTWF0aWJhYnVBbGVydDIwMTc=";
+	      	var date 			=new Date();
+			var number 			=date.getTime();
+	      	let Bill 			=utf8_to_b64(number);
 
-	      let Csr_token 	="@-"+utf8_to_b64(utf8_to_b64(utf8_to_b64(utf8_to_b64(Name+Id+Province+Level))));
+	      	let Csrf_token 		=utf8_to_b64(utf8_to_b64(utf8_to_b64(utf8_to_b64(Account_sid+Account_token+number+Bill))));
 
 	      let data  = { 
 	                    "ACC_SID"            	:Account_sid,
 	                    "TOKEN" 				:Account_token,
 	                    "PUBLIC_KEY" 			:Key,
-	                    "CSRF_TOKEN" 			:Csr_token,
+	                    "CSRF_TOKEN" 			:Csrf_token,
 	                    "BILL"					:Bill,
 	                    "METHOD" 				:Method[0],
 	                    "ACTION" 				:Action,
+	                    "ELAPSE" 				:number,
 
 	                    "require"           	:{
 	                        "name"        		:Name,
-	                        "id"        		:Id,
 	                        "province"    		:Province,
-	                        "level"        		:Level,
+	                        "zone"				:Zone,
+	                        "resName"			:responsableName,
+	                        "resPhone"			:responsablePhone
 	                    },
 	                 };
 
@@ -193,7 +197,7 @@
 	      xhrPost.setRequestHeader("X-Requested-With","xmlhttprequest");
 	      xhrPost.send(fdPost);
 
-	    }/*END MAKE REQUEST*/
+	    }
 
 
 		function utf8_to_b64( str ) {

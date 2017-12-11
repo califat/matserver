@@ -19,10 +19,6 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
         array (
             'controller\\' => 11,
         ),
-        'T' => 
-        array (
-            'Template\\' => 9,
-        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
@@ -41,10 +37,6 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
         array (
             'Handler\\' => 8,
         ),
-        'F' => 
-        array (
-            'Find_session\\' => 13,
-        ),
         'D' => 
         array (
             'Dotenv\\' => 7,
@@ -53,16 +45,16 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
         array (
             'Carbon\\' => 7,
         ),
+        'A' => 
+        array (
+            'AppKernel\\matibabu\\' => 19,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'controller\\' => 
         array (
             0 => __DIR__ . '/../..' . '/controller',
-        ),
-        'Template\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/Templates',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -88,10 +80,6 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
         array (
             0 => __DIR__ . '/../..' . '/Handler',
         ),
-        'Find_session\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/session',
-        ),
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdotenv/src',
@@ -100,6 +88,10 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
+        'AppKernel\\matibabu\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/matibabu',
+        ),
     );
 
     public static $fallbackDirsPsr0 = array (
@@ -107,6 +99,7 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
     );
 
     public static $classMap = array (
+        'AppKernel\\matibabu\\AppKernel' => __DIR__ . '/../..' . '/matibabu/Matibabu.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -138,6 +131,7 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
         'Router\\RouteNameHandler404' => __DIR__ . '/../..' . '/router/router.php',
         'Router\\Router' => __DIR__ . '/../..' . '/router/router.php',
         'Security\\matibabu\\Security' => __DIR__ . '/../..' . '/security/Security.php',
+        'Src' => __DIR__ . '/../..' . '/src/Src.php',
         'Symfony\\Component\\Translation\\Catalogue\\AbstractOperation' => __DIR__ . '/..' . '/symfony/translation/Catalogue/AbstractOperation.php',
         'Symfony\\Component\\Translation\\Catalogue\\MergeOperation' => __DIR__ . '/..' . '/symfony/translation/Catalogue/MergeOperation.php',
         'Symfony\\Component\\Translation\\Catalogue\\OperationInterface' => __DIR__ . '/..' . '/symfony/translation/Catalogue/OperationInterface.php',

@@ -6,26 +6,9 @@ use ClientSource\matibabu\ClientSource;
 use Security\matibabu\Security;
 if(!Router::isAjax()){ Router::unAuthorized();die();}
 
-class ClientHttp
+class ClientHttp extends \Src
 {
 	
-	public 		$Public_key;
-	private 	$EnvVars;
-	private 	$Secure;
-	private 	$Source;
-	private     $Dater;
-	public 		$dataPost;
-
-	private 	$Action;
-	private 	$Method;
-	private 	$Key;
-	private 	$Account_sid;
-	private 	$Account_token;
-	private 	$Csrf_token;
-	private 	$Bill;
-	private 	$Elapse;
-	private 	$source;
-	private 	$compositeArr =[];
 
 	function __construct()
 	{
@@ -37,6 +20,7 @@ class ClientHttp
 		$data 				=file_get_contents('./tasks.json', FILE_USE_INCLUDE_PATH);
 
 		$json = json_decode($data, true);
+		
         // foreach ($json as $key => $value) {
 
         //     if (!is_array($value)) {
@@ -89,12 +73,13 @@ class ClientHttp
 
 	        			if($this->Source->DetermineSourceFromStr($this->Key,$this->Account_sid,$this->Account_token)){
 
-	        				$this->source ="internal";
-	        				echo "string";
+	        				$this->source =$this->InternalSource;
+
+	        				$this->Source->Decide($this->source,$this->Action);
 
 	        			}else{
 
-	        				$this->source ="external";
+	        				$this->source =$this->ExternalSource;
 
 	        			}
 

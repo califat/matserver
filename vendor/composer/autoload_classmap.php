@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AppKernel\\matibabu\\AppKernel' => $baseDir . '/matibabu/Matibabu.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -37,6 +38,7 @@ return array(
     'Router\\RouteNameHandler404' => $baseDir . '/router/router.php',
     'Router\\Router' => $baseDir . '/router/router.php',
     'Security\\matibabu\\Security' => $baseDir . '/security/Security.php',
+    'Src' => $baseDir . '/src/Src.php',
     'Symfony\\Component\\Translation\\Catalogue\\AbstractOperation' => $vendorDir . '/symfony/translation/Catalogue/AbstractOperation.php',
     'Symfony\\Component\\Translation\\Catalogue\\MergeOperation' => $vendorDir . '/symfony/translation/Catalogue/MergeOperation.php',
     'Symfony\\Component\\Translation\\Catalogue\\OperationInterface' => $vendorDir . '/symfony/translation/Catalogue/OperationInterface.php',

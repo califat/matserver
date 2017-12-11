@@ -28,6 +28,14 @@
 						<input type="text" id="satgeName" name="satgeName" class="middle">
 					</label>
 					<label>
+						<p>Adresse de la structure</p>
+						<input type="text" id="satgeName" name="satgeName" class="middle">
+					</label>
+					<label>
+						<p>Arete ministeriel</p>
+						<input type="text" id="satgeName" name="satgeName" class="middle">
+					</label>
+					<label>
 						<p>Province</p>
 						<select id="stageProvince">
 							<option value="A">Bas-uele</option>

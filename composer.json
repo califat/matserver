@@ -1,13 +1,12 @@
 {
 	"autoload":{
 		"psr-4":{
-			"controller\\"		:"controller",
-			"Router\\"			:"router",
-			"Handler\\"			:"Handler",
-			"Template\\"		:"Templates",
-			"Find_session\\"	:"session",
-			"Model\\"			:"model",
-			"Dotenv\\"			: "vendor\\phpdotenv\\src/"
+			"controller\\"			:"controller",
+			"Router\\"				:"router",
+			"Handler\\"				:"Handler",
+			"Model\\"				:"model",
+			"AppKernel\\matibabu\\"	:"matibabu",
+			"Dotenv\\"				: "vendor\\phpdotenv\\src/"
 		},
 		"files":[
 			"web/Dater.php",

@@ -26,7 +26,7 @@ class Controller extends Model
 
 		if(isset($_GET["url"]) && !empty($_GET["url"])){
 
-		 	$this->url 					=$_GET["url"];
+		 	$this->url 					=mb_strtolower($_GET["url"]);
 		}
 
 		$this->route_array 				=explode("/", $this->url);
@@ -35,6 +35,7 @@ class Controller extends Model
 
 		$this->route 					=$this->route_revome_dot[0];
 
+		$this->ExceptionalRoute($this->url);
 		(new Router($this->route));
 		
 	}
@@ -44,5 +45,53 @@ class Controller extends Model
 		return !empty($_GET["url"]) ? $_GET["url"] : false;
 
 	}
+
+	#PROCESS EXPTIONAL URL (MAY CONTAIN DASH OR OTHER CHARACTER)
+	private function ExceptionalRoute($route){
+
+
+		switch ($route) {
+
+			case "api/run":
+
+				$this->route ="run";
+				break;
+
+			case "api/activate":
+
+				$this->route ="activate";
+				break;
+
+			case "api/client":
+
+				$this->route ="client";
+				break;
+
+			case "api/login":
+
+				$this->route ="login";
+				break;
+
+			case "api/confirm":
+
+				$this->route ="confirm";
+				break;
+
+			case "api/disconnect":
+
+				$this->route ="disconnectDevice";
+				break;
+
+			case "api/search/client":
+
+				$this->route ="searchClient";
+				break;
+
+			default:
+				# code...
+				break;
+		}
+
+	}#END METHOD
 
 }

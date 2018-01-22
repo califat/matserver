@@ -5,21 +5,9 @@ class Model
 {
 
 		const HOST 					="localhost";
-        const DB 					="ah_viotube";
+        const DB 					="ah_matibabu";
         const USERNAME 				="root";
         const PASSWORD 				="";
-
-        const USERS_TABLE 			="users";
-        const EVENTS_TABLE 			="a_events";
-        const JOURNALS_TABLE 		="a_journals";
-
-        const ROUTE_USER_PROFIL 	="userprofil";
-        const ROUTE_EVENT 			="event";
-        const ROUTE_JOURNAL 		="journal";
-
-        const IN_USER_FIELD 		="row_profil_name";
-        const IN_EVENT_FIELD 		="raw_event_name";
-        const IN_JOURNAL_FIELD 		="raw_journal_name";
 
         protected $routerTakeRoute	;
         private $lastId;
@@ -67,6 +55,14 @@ class Model
 
         	return $query->fetch(PDO::FETCH_OBJ);
         }#END METHOD
+
+        protected function cell_count($table, $field_name, $field_value){
+
+            $query  =$this->queryList("SELECT * FROM $table WHERE $field_name =:field_value",["field_value"  =>$field_value]);
+
+            $queryRes =$this->AsCount($query);
+            return $queryRes;
+        }
 
         protected function AsCount($query){#COUNT NUMBER OF RESULT FOUNDED
 

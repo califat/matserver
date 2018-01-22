@@ -144,14 +144,6 @@ class Stringer
         return  count($month_list < $mont_int) ? htmlspecialchars($month_list[$mont_int]) : false;
     }
 
-    public function statusDecor($str){
-
-    	if($str && strlen($str) <=18 )return "display-statut-decor";
-    	if($str && strlen($str) >18 )return "display-statut";
-
-    }
-
-
 
     function NowDateToHash()
     {

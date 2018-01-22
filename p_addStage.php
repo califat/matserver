@@ -25,15 +25,15 @@
 				<section class="border-down">
 					<label>
 						<p>Nom de la structure</p>
-						<input type="text" id="satgeName" name="satgeName" class="middle">
+						<input type="text" id="satgeName" name="satgeName" class="middle" value="Centre Hosppitalier Docs">
 					</label>
 					<label>
 						<p>Adresse de la structure</p>
-						<input type="text" id="satgeName" name="satgeName" class="middle">
+						<input type="text" id="stageAddress" name="stageAddress" class="middle" value="Goma quartier le volcans">
 					</label>
 					<label>
 						<p>Arete ministeriel</p>
-						<input type="text" id="satgeName" name="satgeName" class="middle">
+						<input type="text" id="stageArrete_min" name="stageArrete_min" class="middle" value='art/kab/min/sante/<?= strftime("%Y%m%d")?>'>
 					</label>
 					<label>
 						<p>Province</p>
@@ -55,7 +55,7 @@
 							<option value="O">Maindombe</option>
 							<option value="P">Maniema</option>
 							<option value="Q">Mongala</option>
-							<option value="R">Nork-kivu</option>
+							<option value="R" selected="">Nork-kivu</option>
 							<option value="S">Nord-ubangi</option>
 							<option value="T">Sankuru</option>
 							<option value="U">Sud-kivu</option>
@@ -64,27 +64,28 @@
 							<option value="X">Tshopo</option>
 							<option value="Y">Tshuapa</option>
 							<option value="Z">Kinshasa</option>
-
 						</select>
 					</label>
 					<label>
 						<p>Zone de sante</p>
 						<select id="zoneSante">
-							<option value="A">Bas-uele</option>
-							<option value="B">Equateur</option>
-							<option value="C">Haut-katanga</option>
+							<option value="R1">OICHA</option>
+							<option value="B">KAMANGO</option>
+							<option value="C">BENI</option>
+							<option value="D">MABALAKO</option>
+							<option value="E">KALUNGUTA</option>
 						</select>
 					</label>
 					<label>
 						<p>Nom du responsable</p>
-						<input type="text" id="responsableName" name="" placeholder="Hopital, centre Hospitalier, zone de sante, cente de sante" class="full">
+						<input type="text" id="responsableName" name="" placeholder="Hopital, centre Hospitalier, zone de sante, cente de sante" class="full" value="Dr Zaire">
 					</label>
 					<label>
 						<p>Numero de telephone</p>
-						<input type="text" id="responsablePhone" name="" placeholder="Hopital, centre Hospitalier, zone de sante, cente de sante" class="full">
+						<input type="text" id="responsablePhone" name="" placeholder="Hopital, centre Hospitalier, zone de sante, cente de sante" class="full" value="0979688045">
 					</label>	
 				</section>
-				<button id="submit">Submit</button>
+				<button id="submit" style="position: relative;padding: 5px 5px;cursor: pointer;">Submit</button>
 			</div>
 		</form>
 	</div>
@@ -92,11 +93,13 @@
 	<script type="text/javascript">
 		let submit 					=document.getElementById("submit");
 		let satgeName 				=document.getElementById("satgeName");
+		let stageAddress			=document.getElementById("stageAddress");
+		let stageArrete_min 		=document.getElementById("stageArrete_min");
 		let stageProvince 			=document.getElementById("stageProvince");
+		let zoneSante 				=document.getElementById("zoneSante");
 		let stageResponsableName 	=document.getElementById("responsableName");
 		let stageResponsablePhone	=document.getElementById("responsablePhone");
-		let zoneSante 				=document.getElementById("zoneSante");
-
+		
 		(function(){
 			"use strict";
 			try{
@@ -108,7 +111,7 @@
 						try{
 							if(satgeName && stageProvince && responsableName, responsablePhone){
 								
-								let Name =satgeName.value, Province =stageProvince.options[stageProvince.selectedIndex].value, responsableName =stageResponsableName.value, responsablePhone =stageResponsablePhone.value, Zone =zoneSante.options[zoneSante.selectedIndex].value;
+								let Name =satgeName.value, Address =stageAddress.value, Arrete_min =stageArrete_min.value, Province =stageProvince.options[stageProvince.selectedIndex].value, responsableName =stageResponsableName.value, responsablePhone =stageResponsablePhone.value, Zone =zoneSante.options[zoneSante.selectedIndex].value;
 								
 								if(Name =="" || Province == "" || responsableName == "" || responsablePhone ==""){
 
@@ -117,7 +120,7 @@
 
 								}else{
 									
-									makeRequest(Name,Province,Zone,responsableName,responsablePhone);
+									makeRequest(Name,Address,Arrete_min,Province,Zone,responsableName,responsablePhone);
 
 								}
 
@@ -132,9 +135,9 @@
 				console.log(e);
 			}
 		})();
-	    function makeRequest(Name,Province,Zone,responsableName,responsablePhone){
-	  
-	      	let uriPost   		="run";
+	    function makeRequest(Name,Address,Arrete_min,Province,Zone,responsableName,responsablePhone){
+	  		
+	      	let uriPost   		="api/run";
 	      	let xhrPost   		=GethttpRequest();
 	      	let fdPost    		=new FormData();
 	      	let Action 			="create_stage";
@@ -160,6 +163,8 @@
 
 	                    "require"           	:{
 	                        "name"        		:Name,
+	                        "address"        	:Address,
+	                        "arrete_min"        :Arrete_min,
 	                        "province"    		:Province,
 	                        "zone"				:Zone,
 	                        "resName"			:responsableName,

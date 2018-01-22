@@ -1,4 +1,9 @@
 {
+	"name"			:"Api-Matibabu-cd",
+	"description" 	:"Sms based technology to fight childhood mortality",
+	"licence" 		:"MIT",
+	"type" 			:"project",
+	"keywords" 		:["Api Matibabu","Api Matibabu cd","Matibabu Ai"],
 	"autoload":{
 		"psr-4":{
 			"controller\\"			:"controller",
@@ -6,13 +11,17 @@
 			"Handler\\"				:"Handler",
 			"Model\\"				:"model",
 			"AppKernel\\matibabu\\"	:"matibabu",
+			"Sms\\matibabu\\" 		:"sms",
+			"SmsClass\\matibabu\\" 	:"services",
 			"Dotenv\\"				: "vendor\\phpdotenv\\src/"
 		},
 		"files":[
 			"web/Dater.php",
 			"web/AppDefender.php",
 			"web/LoadEnv.php",
-			"web/Stringer.php"
+			"web/Stringer.php",
+			"services/PhoneNumberValidator.php",
+			"services/ValidateProfilCodeAndStageId.php"
 		],
 		"classmap": ["Http/", "src/", "Deserializer.php","security/"]
 	},

@@ -32,7 +32,7 @@ class Router extends Controller
 	public function __construct($route)
 	{
 
-		if(method_exists(get_class($this),strtolower($route)) || strtolower($route) !=="" ){
+		if(method_exists(get_class($this),strtolower($route)) && strtolower($route) !=="" ){
 
 			$this->route =$route;
 
@@ -65,7 +65,7 @@ class Router extends Controller
 	{
 		$date 	=new \Dater;
 		$now 	=$date->now();
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 
 		if(!empty($messageName) && !empty(($message))):
 
@@ -87,12 +87,27 @@ class Router extends Controller
 	 							]
 	 						]);
 	 	endif;	
+	}
 
-	
+	public static function ErrorMessage($status=401,$errorMessage="")
+	{
+
+		if(trim($errorMessage) !==""){
+
+			echo json_encode($errorMessage);
+	 		http_response_code($status);
+	 		die();
+		}else{
+
+			echo json_encode("Something went wrong");
+	 		http_response_code($status);
+	 		die();
+		}
+
 	}
 	public static function ajaxRequiredError(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(400);
 	 	die();
@@ -100,7 +115,7 @@ class Router extends Controller
 
 	public static function unAuthorized(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(401);
 	 	die();
@@ -108,7 +123,7 @@ class Router extends Controller
 
 	public static function payementRequired(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(402);
 	 	die();
@@ -116,7 +131,7 @@ class Router extends Controller
 
 	public static function forbiden(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(403);
 	 	die();
@@ -124,7 +139,7 @@ class Router extends Controller
 
 	public static function methodNotAllowed(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(405);
 	 	die();
@@ -132,7 +147,7 @@ class Router extends Controller
 
 	public static function notAcceptable(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(406);
 	 	die();
@@ -140,7 +155,7 @@ class Router extends Controller
 
 	public static function networkError(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(407);
 	 	die();
@@ -148,21 +163,21 @@ class Router extends Controller
 
 	public static function requestTimeout(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(408);
 	 	die();
 	}
 	public static function confilct(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(409);
 	 	die();
 	}
  	public static function internalServerError(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(500);
 	 	die();
@@ -170,7 +185,7 @@ class Router extends Controller
 
 	public static function notImplemented(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(501);
 	 	die();
@@ -178,7 +193,7 @@ class Router extends Controller
 
 	public static function badGateway(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(502);
 	 	die();
@@ -186,7 +201,7 @@ class Router extends Controller
 
 	public static function serviceUnavailable(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(503);
 	 	die();
@@ -194,7 +209,7 @@ class Router extends Controller
 
 	public static function gatewayTimeout(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(504);
 	 	die();
@@ -202,7 +217,7 @@ class Router extends Controller
 
 	public static function httpVersionNotSupported(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(505);
 	 	die();
@@ -210,7 +225,7 @@ class Router extends Controller
 
 	public static function variantAlsoNegotiate(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(506);
 	 	die();
@@ -218,7 +233,7 @@ class Router extends Controller
 
 	public static function unsuficientStorage(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(507);
 	 	die();
@@ -226,7 +241,7 @@ class Router extends Controller
 
 	public static function loopDetected(){
 
-		header("Content-Type :application/json");
+		//header("Content-Type :application/json");
 	 	echo json_encode("error");
 	 	http_response_code(508);
 	 	die();
@@ -250,7 +265,7 @@ class Router extends Controller
 
 	final public function moreTesting() {
 
-       pass;
+       /*pass;*/
    	}
 
    	private static function RouteNameHandler404(){
@@ -307,18 +322,39 @@ class Router extends Controller
 		(new ClientHttp);
 	}
 
+	public static function activate(){
+
+		require "src/ActivateStage.php";
+	}
+
+	public static function client(){
+
+		(new ClientHttp);
+	}
+
+	public static function login(){
+
+		(new ClientHttp);
+	}
+
+	public static function confirm()
+	{
+		require "src/confirmLogin.php";
+	}
+
+	public static function disconnectDevice()
+	{
+		(new ClientHttp);
+	}	
+
+	public static function searchClient()
+	{
+		(new ClientHttp);
+	}	
+
 	public function ApiIndex()
 	{
 		echo "vs ete a la page index de l'API";
-	}
-
-	public static function form()
-	{
-		return require"form.php";
-	}
-	public static function addStage()
-	{
-		return require"addStage.php";
 	}
 
 }#END CLASS

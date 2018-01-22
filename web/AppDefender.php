@@ -93,7 +93,7 @@ class AppDefender
      * @param int $max
      * @return int
      */
-    protected function getRandomInteger($min, $max)
+    public function getRandomInteger($min, $max)
     {
         $range = ($max - $min);
 
@@ -162,7 +162,7 @@ class AppDefender
         $max = strlen($codeAlphabet); // edited
 
         for ($i=0; $i < $length; $i++) {
-            $token .= $codeAlphabet[crypto_rand_secure(0, $max-1)];
+            $token .= $codeAlphabet[$this->crypto_rand_secure(0, $max-1)];
         }
 
         return $token;

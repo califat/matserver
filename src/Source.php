@@ -9,10 +9,13 @@ class ClientSource extends \Src
 {
 
 	public 	$EnvVars;
+	private $Kernel;
+	private $Model;
 	
 	function __construct()
 	{
 		$this->EnvVars 		=(new \LoadEnv);
+		$this->Kernel 		=new Kernel;
 
 	}
 	public function DetermineSourceFromStr($str1,$str2,$str3)
@@ -25,10 +28,29 @@ class ClientSource extends \Src
 			return false;
 		}
 	}
-	public function Decide($source,$action)
+	public function Decide($source,$action,$dataPostRequire,$credentials)
 	{
-		if ($action ==$this->CreateStage && $source =="internal") {
-			(new Kernel)->CreateStageFromInternal();
+		if ($action == $this->CreateStage && $source =="internal") {
+
+			$this->Kernel->CreateStageFromInternal($dataPostRequire);
+
+		}elseif($action ==$this->CreateClient && $source =="internal"){
+
+			$this->Kernel->CreateClientFromInternal($dataPostRequire,$credentials);
+
+		}elseif($action == $this->logStage && $source =="internal"){
+
+			$this->Kernel->LogStage($dataPostRequire,$credentials);
+
+		}elseif($action == $this->disconnectDevice && $source =="internal"){
+
+			(new \DisconnectDevice($dataPostRequire,$credentials));
+
+		}elseif($action == $this->searchClient && $source =="internal"){
+
+			$this->Kernel->SearchClient($dataPostRequire,$credentials);
+
 		}
 	}
+
 }

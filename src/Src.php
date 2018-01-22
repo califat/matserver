@@ -23,4 +23,8 @@ abstract class Src
 	public  $ExternalSource ="external";
 
 	public $CreateStage 	="create_stage";
+	public $CreateClient 	="create_client";
+	public $logStage 		="log_stage";
+	public $disconnectDevice="disconnect_device";
+	public $searchClient 	="search_client";
 }

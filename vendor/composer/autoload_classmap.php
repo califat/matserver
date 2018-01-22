@@ -6,12 +6,16 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'ActivateStage' => $baseDir . '/src/ActivateStage.php',
     'AppKernel\\matibabu\\AppKernel' => $baseDir . '/matibabu/Matibabu.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
     'Carbon\\Exceptions\\InvalidDateException' => $vendorDir . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
     'ClientHttp\\matibabu\\ClientHttp' => $baseDir . '/Http/ClientHttp.php',
+    'ClientResponse\\matibabu\\ClientResponse' => $baseDir . '/Http/Response.php',
     'ClientSource\\matibabu\\ClientSource' => $baseDir . '/src/Source.php',
+    'ConfirmStageLogin' => $baseDir . '/src/confirmLogin.php',
+    'DisconnectDevice' => $baseDir . '/src/DisconnectDevice.php',
     'Dotenv\\Dotenv' => $vendorDir . '/phpdotenv/src/Dotenv.php',
     'Dotenv\\Exception\\ExceptionInterface' => $vendorDir . '/phpdotenv/src/Exception/ExceptionInterface.php',
     'Dotenv\\Exception\\InvalidCallbackException' => $vendorDir . '/phpdotenv/src/Exception/InvalidCallbackException.php',
@@ -38,6 +42,8 @@ return array(
     'Router\\RouteNameHandler404' => $baseDir . '/router/router.php',
     'Router\\Router' => $baseDir . '/router/router.php',
     'Security\\matibabu\\Security' => $baseDir . '/security/Security.php',
+    'SmsClass\\matibabu\\SmsClass' => $baseDir . '/services/SmsClass.php',
+    'Sms\\matibabu\\Sms' => $baseDir . '/sms/Sms.php',
     'Src' => $baseDir . '/src/Src.php',
     'Symfony\\Component\\Translation\\Catalogue\\AbstractOperation' => $vendorDir . '/symfony/translation/Catalogue/AbstractOperation.php',
     'Symfony\\Component\\Translation\\Catalogue\\MergeOperation' => $vendorDir . '/symfony/translation/Catalogue/MergeOperation.php',

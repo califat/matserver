@@ -7,7 +7,7 @@ use Handler\Handler;
 use Router\Router;
 
 if(Router::isAjax()):
-	header('Content-Type :application/json');
+	//header('Content-Type :application/json');
  	echo json_encode('Error');
  	http_response_code(404);
  	die();

@@ -10,6 +10,8 @@ return array(
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
+    'Sms\\matibabu\\' => array($baseDir . '/sms'),
+    'SmsClass\\matibabu\\' => array($baseDir . '/services'),
     'Router\\' => array($baseDir . '/router'),
     'Model\\' => array($baseDir . '/model'),
     'Handler\\' => array($baseDir . '/Handler'),

@@ -12,6 +12,8 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
         'bdc08ff2c4cb3093bd2b47d9a943c564' => __DIR__ . '/../..' . '/web/AppDefender.php',
         '55775cce80bab5053b26773cf8fc4120' => __DIR__ . '/../..' . '/web/LoadEnv.php',
         '6093403270b670b25320e235126e137e' => __DIR__ . '/../..' . '/web/Stringer.php',
+        'dea35680d03a022e31dd0980826dbbad' => __DIR__ . '/../..' . '/services/PhoneNumberValidator.php',
+        '4d5ffb7821b7ebb1a1f7deb7eea48a27' => __DIR__ . '/../..' . '/services/ValidateProfilCodeAndStageId.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -24,6 +26,8 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\Translation\\' => 30,
+            'Sms\\matibabu\\' => 13,
+            'SmsClass\\matibabu\\' => 18,
         ),
         'R' => 
         array (
@@ -68,6 +72,14 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
+        'Sms\\matibabu\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/sms',
+        ),
+        'SmsClass\\matibabu\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/services',
+        ),
         'Router\\' => 
         array (
             0 => __DIR__ . '/../..' . '/router',
@@ -99,12 +111,16 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
     );
 
     public static $classMap = array (
+        'ActivateStage' => __DIR__ . '/../..' . '/src/ActivateStage.php',
         'AppKernel\\matibabu\\AppKernel' => __DIR__ . '/../..' . '/matibabu/Matibabu.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'ClientHttp\\matibabu\\ClientHttp' => __DIR__ . '/../..' . '/Http/ClientHttp.php',
+        'ClientResponse\\matibabu\\ClientResponse' => __DIR__ . '/../..' . '/Http/Response.php',
         'ClientSource\\matibabu\\ClientSource' => __DIR__ . '/../..' . '/src/Source.php',
+        'ConfirmStageLogin' => __DIR__ . '/../..' . '/src/confirmLogin.php',
+        'DisconnectDevice' => __DIR__ . '/../..' . '/src/DisconnectDevice.php',
         'Dotenv\\Dotenv' => __DIR__ . '/..' . '/phpdotenv/src/Dotenv.php',
         'Dotenv\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/phpdotenv/src/Exception/ExceptionInterface.php',
         'Dotenv\\Exception\\InvalidCallbackException' => __DIR__ . '/..' . '/phpdotenv/src/Exception/InvalidCallbackException.php',
@@ -131,6 +147,8 @@ class ComposerStaticInit3857acc6ed1248adb6cb5d3e06114247
         'Router\\RouteNameHandler404' => __DIR__ . '/../..' . '/router/router.php',
         'Router\\Router' => __DIR__ . '/../..' . '/router/router.php',
         'Security\\matibabu\\Security' => __DIR__ . '/../..' . '/security/Security.php',
+        'SmsClass\\matibabu\\SmsClass' => __DIR__ . '/../..' . '/services/SmsClass.php',
+        'Sms\\matibabu\\Sms' => __DIR__ . '/../..' . '/sms/Sms.php',
         'Src' => __DIR__ . '/../..' . '/src/Src.php',
         'Symfony\\Component\\Translation\\Catalogue\\AbstractOperation' => __DIR__ . '/..' . '/symfony/translation/Catalogue/AbstractOperation.php',
         'Symfony\\Component\\Translation\\Catalogue\\MergeOperation' => __DIR__ . '/..' . '/symfony/translation/Catalogue/MergeOperation.php',

@@ -11,4 +11,6 @@ return array(
     'bdc08ff2c4cb3093bd2b47d9a943c564' => $baseDir . '/web/AppDefender.php',
     '55775cce80bab5053b26773cf8fc4120' => $baseDir . '/web/LoadEnv.php',
     '6093403270b670b25320e235126e137e' => $baseDir . '/web/Stringer.php',
+    'dea35680d03a022e31dd0980826dbbad' => $baseDir . '/services/PhoneNumberValidator.php',
+    '4d5ffb7821b7ebb1a1f7deb7eea48a27' => $baseDir . '/services/ValidateProfilCodeAndStageId.php',
 );

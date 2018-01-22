@@ -7,73 +7,64 @@
 		.full{position: relative;display: inline-block;width: 100%}
 		.middle{position: relative;display: inline-block;width: 40%}
 		.border-down{position: relative;display: block;margin-bottom: 5px}
-		#cpn{display: none;}
+		.cpnHidden{position: relative;display: none;}
+		.cpnVisible{position: relative;display: inline-block;}
 	</style>
 </head>
 <body>
 	<div class="mainDiv">
-		<form>
-			<div id="authenfication">
-				<input type="hidden" name="province" value="A">
-				<input type="hidden" name="numero" value="123456789">
-				<input type="hidden" name="district_san" value="afia himbi">
-				<input type="hidden" name="date" value="<?= strftime("%Y-%m-%d")?>">
-				<input type="hidden" name="zone_sanitaire" value="carmel">
-				<input type="hidden" name="form_sanitaire" value="centre de sante">
-			</div>
+		<form id="formClient" action="api/client">
 			<div id="identification">
 				<section class="border-down">
 					<label>
 						<p>Nom et postnom</p>
-						<input type="text" name="nama_last_nale" class="middle">
+						<input type="text" name="" id="clientFullName" class="middle" value="Kavira Maisara">
 					</label>
 					<label>
 						<p>Etat civil</p>
-						<select class="middle" id="etat_civil" name="civil_status">
-							<option selected="true" value="Marie">Marie</option>
-							<option value="Celibataire">Celibataire</option>
+						<select class="middle" id="clientCiviLStatus" name="civil_status">
+							<option value="Mariee" selected="">mariee</option>
+							<option value="celibataire">Celibataire</option>
 						</select>
 					</label>
-<!-- 					<label>
+					<label>
 						<p>Date de naissance</p>
-						<input type="date" name="" class="middle">
-						<p>Date de naissance</p>
-						<input type="number" name="" class="middle" value="18">
-					</label> -->
+						<input type="date" id="clientAge" class="middle" value="<?= strftime("%Y-%m-%d")?>">
+					</label> 
 					<label>
 						<p>Occupation/F</p>
-						<input type="text" name="" class="middle">
+						<input type="text" value="comercante" id="clientOccupation" class="middle">
 					</label>
 					<label>
 						<p>Address</p>
-						<input type="text" name="" placeholder="Quartier, ville" class="middle">
+						<input type="text" name="" value="Q himbi, Av du lac 12" id="clientAddress">
 					</label>
 					<label>
 						<p>Tellephone</p>
-						<input type="text" name="" class="middle">
+						<input type="text" name="" id="clientPhone" value="+243979688045" class="middle">
 					</label>
 					<label>
-						<p>Group sangun</p>
-						<select class="middle">
-							<option>A</option>
-							<option>B</option>
-							<option>C</option>
+						<p>Group sangain</p>
+						<select class="middle" id="clientBloodGroup">
+							<option value="A">A</option>
+							<option selected="" value="B">B</option>
+							<option value="C">C</option>
 						</select>
 					</label>
 					<label>
 						<p>Rh</p>
-						<select class="middle">
+						<select class="middle" id="clientRh">
 							<option>{unkown value}</option>
 							<option>{unkown value}</option>
 						</select>
 					</label>
 					<label>
 						<p>Talle en (cm)</p>
-						<input type="number" name="" class="middle">
+						<input type="number" name="" id="clientSize" value="80" class="middle">
 					</label>
 					<label>
 						<p>Electrophase Hb</p>
-						<select class="middle">
+						<select class="middle" id="clientElectrophaseHb">
 							<option>{unkown value}</option>
 							<option>{unkown value}</option>
 							<option>{unkown value}</option>
@@ -81,35 +72,43 @@
 					</label>
 					<label>
 						<p>Nom du partenaire</p>
-						<input type="text" name="" class="middle">
+						<input type="text" name="" class="middle" id="clientPartenerName">
 					</label>
 					<label>
 						<p>Occupation/H</p>
-						<input type="text" name="" class="middle">
+						<input type="text" name="" class="middle" id="clientPartenerOccupation">
 					</label>
 					<label>
-						<p>Contact d'urgence</p>
-						<input type="text" name="" class="middle">
-						<p>Address</p>
-						<input type="text" name="Quartier, ville" class="middle">
-						<p>Tellephone</p>
-						<input type="text" name="" class="middle">
+						<p>Contact d'urgence Nom:</p>
+						<input type="text" name="Quartier, ville" class="middle" id="emergencyName">
+						<p>Contact d'urgence Tellephone:</p>
+						<input type="text" name="" class="middle" id="emergencyPhone" value="+243979688045">
 					</label>
 				</section>
 				<section class="border-down" style="position: relative;display: block;">
 					<label>
 						<p>DDR</p>
-						<input type="date" name="" class="middle">
+						<!-- <input type="date" class="middle" id="clientDdr" data-signification="date dernier de rendez vous" value="<?=strftime("%Y-%m-%d")?>"> -->
+						<select id="clientDdrSelect">
+							<option value="1w">1 semaine</option>
+							<option value="2w">2 semaine</option>
+							<option value="3w">3 semaine</option>
+							<option value="1m">1 mois</option>
+							<option value="1m_1w">1 mois et 1 sem</option>
+							<option value="1m_2w">1 mois et 2 sem</option>
+							<option value="1m_3w">1 mois et 3 sem</option>
+							<option value="2m">2 mois</option>
+						</select>
 					</label>
 					<label>
 						<p>DPA</p>
-						<input type="date" name="" class="middle">
+						<input type="date" class="middle" id="clientDpa" data-signification="date probalble d'accouchement" value="<?=strftime("%Y-%m-%d")?>">
 					</label>
 					<label>
 						<p>Primipare</p>
-						<select class="middle">
-							<option>19 ans ou moin</option>
-							<option>35 ans ou plus</option>
+						<select class="middle" id="clientPrimipare">
+							<option value="19">19 ans ou moin</option>
+							<option value="35">35 ans ou plus</option>
 						</select>
 					</label>
 					<p><strong>ANTECENDENTS</strong></p>
@@ -117,176 +116,178 @@
 						<p><strong>Medicaux</strong></p>
 						<label>
 							<span>TBC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientTbc">
 						</label>
 						<label>
 							<span>HTA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientHta">
 						</label>
 						<br>
 						<label>
 							<span>SCA/SS&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientSca_SS">
 						</label>
 						<label>
 							<span>DBT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientDbt">
 						</label>
 						<br>
 						<label>
 							<span>CAR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientCar">
 						</label>
 						<label>
 							<span>MGF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientMfg">
 						</label>
 						<br>
 						<label>
 							<span>RAA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientRaa">
 						</label>
 						<label>
 							<span>SYPHYLIS</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientSyphylis">
 						</label>
 						<br>
 						<label>
 							<span>VIH/SIDA</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientVih_Sida">
 						</label>
 						<label>
 							<span>VVS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientVvs">
 						</label>
 						<br>
 						<label>
 							<span>PEP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="CleintPep">
 						</label>
 					</div>
 					<div>
 						<p><strong>Gynecologique  et chirirgucaux</strong></p>
 						<label>
 							<span>Cesarienne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientCesarienne">
 						</label>
 						<label>
 							<span>Cerclage&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientCerclage">
 						</label>
 						<br>
 						<label>
 							<span>Fibrome uterien&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="cleintFibromeUterien">
 						</label>
 						<label>
 							<span>Fracture bassin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientFractureBassin">
 						</label>
 						<br>
 						<label>
 							<span>GEU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="cleintGeu">
 						</label>
 						<label>
 							<span>Fistule&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientFistule">
 						</label>
 						<br>
 						<label>
 							<span>Uterus cicatriciel</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientUterusCicatriciel">
 						</label>
 						<label>
 							<span>Traitement pour sterilite</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientTraitementPourSterilite">
 						</label>
 					</div>
 					<div>
 						<p><strong>Obstetricaux</strong></p>
 						<label>
 							<span>Parite&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientParitee">
 						</label>
 						<label>
 							<span>Gestile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientGestile">
 						</label>
 						<br>
 						<label>
 							<span>Enfants en vie&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="cleintEnfantEnVie">
 						</label>
 						<label>
 							<span>Avortements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientAvortement">
 						</label>
 						<br>
 						<label>
 							<span>Distocie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="cleintDistocie">
 						</label>
 						<label>
 							<span>Eutocie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientEutocie">
 						</label>
 						<br>
 						<label>
-							<span>Plus gros poids de naissance (g)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="number" name="">
-						</label>
+							<span>Plus gros poids de naissance (g)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+							<input type="number" id="clientGrosPoidNaissance" value="300">
+						</label><br>
 						<label>
-							<span>Plus de 4kg(nbr)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="number" name="">
+							<span>Plus de 4kg(nbr)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+							<input type="number" id="cientPlusDe4kg" value="300">
 						</label>
 						<br>
 						<label>
 							<span>Premature</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientPremature">
 						</label>
 						<label>
 							<span>Post-premature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientPostMature">
 						</label>
 						<br>
 						<label>
 							<span>Mort-ne&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
-						</label>
+							<input type="checkbox" name="" id="clientMortNe">
+						</label><br>
 						<label>
 							<span>Mort avavnts 7jours&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
-						</label>
+							<input type="checkbox" name="" id="clientMortAvant7Jrs">
+						</label><br>
 						<label>
 							<span>Dernier acouchement&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="date" name="">
-						</label>
+							<input type="text" id="clientDernierAcouchementDate" value="<?= strftime("%Y")?>">
+						</label><br>
 						<label>
 							<span>Intervalle < 2ans&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="checkbox" name="">
+							<input type="checkbox" name="" id="clientIntervalMoin2ans">
 						</label>
 						<br>
-						<label>
+						<div class="card">
 							<p>Complication post-parum</p>
-							<span>
-								NON
-								<input type="radio" name="">
-							</span>
-							<span>
-								OUI
-								<input type="radio" name="">
-							</span>
-						</label>
+							<label class="radio">
+							  	<input id="complicationPostParumOui" type="radio" name="radios">
+							  	OUI
+							</label> <br>
+							<label class="complicationPostParumNon">
+							  	<input id="radio2" type="radio" name="radios">
+							  	NON
+							</label>
+						</div>
 						<label>
 							<p>Si oui le quelles:</p>
-							<input type="text" name="">
+							<input type="text" name="" id="clientComplicationPostParumDescription" value="complications">
 						</label>	
 					</div>
 				</section>
-				<button id="Forward">Next</button>
+				<button id="Forward" style="position: relative;padding: 5px 10px;cursor: pointer;">Next</button>
 			</div>
-			<div id="cpn">
+		</form>	
+		<form>
+			<div id="cpn" class="cpnHidden">
 				<label>
 					<p>Date de la visite</p>
 					<input type="date" name="" value="<?= strftime("%Y-%m-%d")?>">
@@ -469,8 +470,8 @@
 						<input type="text" name="">
 					</label>
 				</div>
-				<button style="position: relative;margin: 10px ;float: left;" id="back">Back</button>
-				<button style="position: relative;margin: 10px ;float: right;" id="submit">Submit</button>
+				<button style="position: relative;margin: 10px ;float: left;padding: 5px 10px;cursor: pointer;" id="back">Back</button>
+				<button style="position: relative;margin: 10px ;float: right;padding: 5px 10px;cursor: pointer;" id="submit">Submit</button>
 			</div>
 		</form>
 	</div>

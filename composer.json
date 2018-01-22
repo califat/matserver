@@ -4,6 +4,7 @@
 	"licence" 		:"MIT",
 	"type" 			:"project",
 	"keywords" 		:["Api Matibabu","Api Matibabu cd","Matibabu Ai"],
+	"author" 		:"ir calif",
 	"autoload":{
 		"psr-4":{
 			"controller\\"			:"controller",
